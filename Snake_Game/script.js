@@ -88,10 +88,10 @@ const BeginGame = () => {
     }
     // blocks[`${food.x}-${food.y}`].classList.remove("food-fill");
     removeFood();
-    food = {
-      x: Math.floor(Math.random() * rows),
-      y: Math.floor(Math.random() * cols),
-    };
+
+    //? Food will not spawn inside snake body
+    food = validFoodPosition();
+
     document.getElementById("score").innerText = score;
   } else {
     snake.pop();
@@ -128,15 +128,26 @@ function removeFood() {
 
 function GameOverCheck(head) {
   if (head.x < 0 || head.y < 0 || head.x >= rows || head.y >= cols) {
-    storeScore(score);
-    clearInterval(interval);
-    clearInterval(timerIntervalId); //! Stop the timer on GameOver
-    restartGame();
-    score = 0;
-    document.getElementById("score").innerText = score;
+    gameOverAction();
     return true;
   }
+
+  for (let i = 0; i < snake.length; i++) {
+    if (head.x == snake[i].x && head.y == snake[i].y) {
+      gameOverAction();
+      return true;
+    }
+  }
   return false;
+}
+
+function gameOverAction() {
+  storeScore(score);
+  clearInterval(interval);
+  clearInterval(timerIntervalId);
+  restartGame();
+  score = 0;
+  document.getElementById("score").innerText = score;
 }
 
 function storeScore(num) {
@@ -227,4 +238,22 @@ function play() {
   return setInterval(() => {
     BeginGame();
   }, 200);
+}
+
+function validFoodPosition() {
+  let isvalid = false;
+  let position = null;
+
+  while (!isvalid) {
+    position = {
+      x: Math.floor(Math.random() * rows),
+      y: Math.floor(Math.random() * cols),
+    };
+
+    isValid = !snake.some(
+      (snakepart) => snakepart.x === position.x && snakepart.y === position.y
+    );
+  }
+
+  return position;
 }
