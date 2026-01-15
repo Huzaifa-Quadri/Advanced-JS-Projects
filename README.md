@@ -28,13 +28,14 @@
       A retro arcade experience built with grid-based logic and collision detection.
       <br><br>
       <b>Tech:</b> HTML5, SCSS, Vanilla JS
-      
+
     </td>
     <td align="center">
       <a href="https://huzaifa-quadri.github.io/Advanced-JS-Projects/snake-game/">
         <img src="https://img.shields.io/badge/Play_Now-success?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Play Now">
       </a>
     </td>
+
   </tr>
   </table>
 
@@ -86,3 +87,4 @@ snake-game/
   </a>
 </div>
 
+lblbljbl
