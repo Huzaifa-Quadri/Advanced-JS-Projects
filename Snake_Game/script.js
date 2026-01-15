@@ -250,7 +250,7 @@ function validFoodPosition() {
       y: Math.floor(Math.random() * cols),
     };
 
-    isValid = !snake.some(
+    isvalid = !snake.some(
       (snakepart) => snakepart.x === position.x && snakepart.y === position.y
     );
   }

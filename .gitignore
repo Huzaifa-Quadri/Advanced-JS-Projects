@@ -1,0 +1,6 @@
+# Ignore all style.css.map files anywhere
+*.map
+style.css.map
+
+# Ignore all working-code.js files anywhere
+working-code.js
