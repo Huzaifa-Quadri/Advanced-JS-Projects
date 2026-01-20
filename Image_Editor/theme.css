@@ -13,6 +13,8 @@
   --text-secondary-color: rgb(200, 200, 200);
   --text-tertiary-color: rgb(150, 150, 150);
   --text-active-color: rgb(24, 24, 24);
+  --text-preset-color: purple;
+  --text-check-color: yellow;
 
   /* padding */
   --padding-sm: 0.5rem;

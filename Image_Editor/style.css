@@ -11,6 +11,8 @@
   --text-secondary-color: rgb(200, 200, 200);
   --text-tertiary-color: rgb(150, 150, 150);
   --text-active-color: rgb(24, 24, 24);
+  --text-preset-color: purple;
+  --text-check-color: yellow;
   /* padding */
   --padding-sm: 0.5rem;
   --padding-md: 1rem;
@@ -148,11 +150,11 @@ main section .right {
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color-secondary);
-  padding: var(--padding-lg);
+  padding: var(--padding-sm) var(--padding-lg);
   border-radius: var(--border-radius-lg);
 }
 main section .right h2 {
-  margin-bottom: var(--gutter-lg);
+  margin: var(--gutter-lg) 0;
 }
 main section .right .filters {
   display: flex;
@@ -186,4 +188,24 @@ main section .right .filters .filter input::-webkit-slider-thumb {
   background-color: red;
   border-radius: 50%;
   margin-top: -0.5rem;
+}
+main section .right .preset-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter-md);
+}
+main section .right .preset-container .preset {
+  padding: var(--padding-sm) var(--padding-lg);
+  border-radius: var(--border-radius-md);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--bg-active-color);
+  color: var(--text-preset-color);
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: var(--font-size-md);
+}
+main section .right .preset-container .preset.active {
+  background-color: var(--text-check-color);
 }/*# sourceMappingURL=style.css.map */

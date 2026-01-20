@@ -136,3 +136,117 @@ if (downloadBtn && imageCanvas) {
     link.click();
   });
 }
+
+//* Presets
+
+const presets = {
+  cyberpunk: {
+    brightness: 110,
+    contrast: 140,
+    saturate: 160,
+    hueRotate: 180,
+    blur: 0,
+    grayscale: 0,
+    sepia: 0,
+    opacity: 100,
+  },
+
+  oldschool: {
+    brightness: 105,
+    contrast: 90,
+    saturate: 80,
+    sepia: 40,
+    blur: 1,
+    grayscale: 0,
+    hueRotate: 0,
+    opacity: 100,
+  },
+
+  noir: {
+    brightness: 100,
+    contrast: 130,
+    saturate: 0,
+    grayscale: 100,
+    blur: 0,
+    sepia: 0,
+    hueRotate: 0,
+    opacity: 100,
+  },
+
+  sunset: {
+    brightness: 110,
+    contrast: 105,
+    saturate: 130,
+    sepia: 25,
+    hueRotate: 10,
+    blur: 0,
+    grayscale: 0,
+    opacity: 100,
+  },
+
+  arctic: {
+    brightness: 95,
+    contrast: 120,
+    saturate: 90,
+    hueRotate: 200,
+    sepia: 0,
+    blur: 0,
+    grayscale: 0,
+    opacity: 100,
+  },
+
+  dreamy: {
+    brightness: 115,
+    contrast: 95,
+    saturate: 120,
+    blur: 2,
+    sepia: 0,
+    grayscale: 0,
+    hueRotate: 0,
+    opacity: 100,
+  },
+
+  horror: {
+    brightness: 80,
+    contrast: 150,
+    saturate: 70,
+    grayscale: 20,
+    blur: 1,
+    sepia: 0,
+    hueRotate: 0,
+    opacity: 100,
+  },
+
+  washed: {
+    brightness: 115,
+    contrast: 90,
+    saturate: 110,
+    sepia: 10,
+    blur: 0,
+    grayscale: 0,
+    hueRotate: 0,
+    opacity: 100,
+  },
+};
+
+const presetContainer = document.querySelector(".preset-container");
+
+Object.keys(presets).forEach((key) => {
+  const presetBtn = document.createElement("button");
+  presetBtn.classList.add("preset");
+  presetBtn.innerText = key;
+  presetContainer.appendChild(presetBtn);
+
+  presetBtn.addEventListener("click", () => {
+    const preset = presets[key];
+
+    Object.keys(preset).forEach((filterName) => {
+      const input = document.querySelector(`[data-filter="${filterName}"]`);
+      if (input) {
+        input.value = preset[filterName];
+      }
+    });
+
+    applyFilters();
+  });
+});
